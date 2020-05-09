@@ -1,0 +1,25 @@
+{
+  "name": "apt-script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lowdb": "^1.0.0",
+    "node-telegram-bot-api": "^0.40.0",
+    "puppeteer-core": "^3.0.4"
+  },
+  "devDependencies": {
+    "jest": "^26.0.1",
+    "jest-date-mock": "^1.0.8"
+  },
+  "jest": {
+    "setupFiles": [
+      "jest-date-mock"
+    ]
+  }
+}
