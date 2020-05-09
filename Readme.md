@@ -1,4 +1,6 @@
 # Apartments bot code
+![](bot_demo.gif)
+
 ## What is it?
 This is a weekend project I wrote to aid me in my new apartments looking.
 Most of the apartments today are advertised in private messages in facebook groups.
