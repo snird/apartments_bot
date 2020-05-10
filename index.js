@@ -13,7 +13,7 @@ const updateHandler = (puppeteerPage) => {
     
             const unseenAds = ads.filter((ad) => {
                 const isSeen = dataStore.adsSeen.isAdSeen(chatId, ad.link)
-                if (isSeen) { console.log('filter seend ad ', ad.link) }
+                if (isSeen) { console.log('filter seen ad ', ad.link) }
                 return !isSeen
             })
     
