@@ -10,8 +10,10 @@ module.exports = {
 
         const $feed = await puppeteerPage.$('div[role=feed]');
         const $$posts = await $feed.$$('.userContentWrapper')
-        // await $feed.screenshot({path: 'example.png'});
-        const ads = $$posts.map(async ($post) => {
+
+        const ads = [];
+
+        for (let $post of $$posts) {
             await delay(1000)
             // Link to the post
             const $dateLink = await $post.$('[data-testid=story-subtitle] a')
@@ -32,16 +34,22 @@ module.exports = {
             } catch {}
     
             // The post text
-            const $postText = await $post.$('[data-testid=post_message]')
-            const postText = await puppeteerPage.evaluate(elm => elm.textContent, $postText);
+            let $postText, postText;
+            try {
+                $postText = await $post.$('[data-testid=post_message]')
+                postText = await puppeteerPage.evaluate(elm => elm.textContent, $postText);
+            } catch (err) {
+                console.error('Could not parse post text.', err)
+                console.error($postText)
+            }
 
-            return {
+            ads.push({
                 date: dateValue,
                 text: postText,
                 link: dateLinkValue
-            }
-        })
+            })
+        }
 
-        return Promise.all(ads);
+        return ads;
     }
 }
