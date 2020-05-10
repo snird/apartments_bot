@@ -18,7 +18,7 @@ const updateHandler = (puppeteerPage) => {
             })
     
             const isTextIndicateRquiredRooms = (text) => {
-                return text.includes(' 3 ') || text.includes('שלוש')
+                return text.includes(' 3 ') || text.includes('שלוש') || text.includes('3 חדר')
             }
     
             const threeRoomsAds = unseenAds.filter((ad) => isTextIndicateRquiredRooms(ad.text))
